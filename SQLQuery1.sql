@@ -67,13 +67,79 @@ VALUES ('S01', 'ST Com', '045234546'),
 ('S03', 'OOP GEE', '0534573453');
 
 INSERT INTO BILL(Bill_ID, SuppID, AgenID, AccID, billType, Bdate, total)
-VALUES ('B01', 'S02', 'AG01', 'ACC01', 'import', GETDATE(), 36000),
-('B02', 'S01', 'AG02', 'ACC03', 'export', GETDATE(), 48000),
-('B03', 'S02', 'AG02', 'ACC02', 'import', GETDATE(), 450000);
+VALUES 
+(dbo.fn_autoIDBill('I'), 'S02', null, 'ACC01', 'import', GETDATE(), 36000),
+(dbo.fn_autoIDBill('E'), null, 'AG02', 'ACC03', 'export', GETDATE(), 48000),
+(dbo.fn_autoIDBill('I'), 'S02', null, 'ACC02', 'import', GETDATE(), 450000);
 
+Select * from BILL 
+delete from BILL
 
 INSERT INTO BILL_DETAIL(ID_detail, Bill_ID, ProID, quantity, price)
-VALUES ('BD01', 'B02', 'P01', 2, 18000),
-('BD02', 'B01', 'P03', 4, 120000),
-('BD03', 'B02', 'P02', 5, 90000);
+VALUES (dbo.fn_autoIDBillDetail('E13122022001'), 'E13122022001', 'P01', 2, 18000),
+(dbo.fn_autoIDBillDetail('I13122022001'), 'I13122022001', 'P03', 4, 120000),
+(dbo.fn_autoIDBillDetail('E13122022001'), 'E13122022001', 'P02', 5, 90000);
 
+SELECT * FROM BILL_DETAIL
+delete from BILL_DETAIL
+
+-----------------------------------------------------------------------
+create function fn_autoIDBill(@formType varchar(10))
+returns varchar(MAX)
+as
+begin
+	declare @today date = getDate();
+	declare @day varchar(3); set @day = day(@today);
+	declare @month varchar(3); set @month = month(@today);
+	declare @date varchar(MAX);
+	set @date = CONCAT(@day,@month,year(@today));
+
+	declare @ID varchar(MAX);
+	set @ID = CONCAT(@formType,@date,'001')
+	if(@ID in (select Bill_ID from BILL))
+	begin
+		declare @findID varchar(MAX);
+		set @findID = LEFT(@ID, LEN(@ID)-3)
+		set @ID = (select max(Bill_ID) from BILL where Bill_ID Like concat(@findID,'%'));
+		declare @num int;
+		set @num = convert(float,substring(@ID,LEN(@ID)-2,3));
+		set @num = @num + 1;
+		set @ID = CONCAT(substring(@ID,1,LEN(@ID)-convert(int, LOG10(@num)+1)), @num);
+		set @ID = RIGHT(@ID, LEN(@ID) - 1)
+		set @ID = CONCAT(@formType,@ID);
+	end
+	return @ID
+end
+go
+
+-----------------------------------------------------------------------
+create function fn_autoIDBillDetail(@BID varchar(30))
+returns varchar(MAX)
+as
+begin
+	declare @today date = getDate();
+	declare @day varchar(3); set @day = day(@today);
+	declare @month varchar(3); set @month = month(@today);
+	declare @date varchar(MAX);
+	set @date = CONCAT(@day,@month,year(@today));
+
+	declare @ID varchar(MAX);
+	set @BID = LEFT(@BID, 1)
+	set @ID = CONCAT('BD',@BID,@date,'001')
+	if(@ID in (select ID_detail from BILL_DETAIL))
+	begin
+		declare @findID varchar(MAX);
+		set @findID = LEFT(@ID, LEN(@ID)-3)
+		set @ID = (select max(ID_detail) from BILL_DETAIL where ID_detail Like concat(@findID,'%'));
+		declare @num int;
+		set @num = convert(float,substring(@ID,LEN(@ID)-2,3));
+		set @num = @num + 1;
+		set @ID = CONCAT(substring(@ID,1,LEN(@ID)-convert(int, LOG10(@num)+1)), @num);
+		set @ID = RIGHT(@ID, LEN(@ID) - 3)
+		set @ID = CONCAT('BD',@BID,@ID);
+	end
+	return @ID
+end
+go
+
+----------------------------------------------------------------
