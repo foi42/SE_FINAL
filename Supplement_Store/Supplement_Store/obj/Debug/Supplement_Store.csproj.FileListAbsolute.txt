@@ -1,0 +1,16 @@
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\bin\Debug\Supplement_Store.exe.config
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\bin\Debug\Supplement_Store.exe
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\bin\Debug\Supplement_Store.pdb
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.csproj.AssemblyReference.cache
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.csproj.SuggestedBindingRedirects.cache
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.Main.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.Properties.Resources.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.csproj.GenerateResource.cache
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.csproj.CoreCompileInputs.cache
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.exe
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.pdb
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.frmProductManage.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.frmBills.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.frmBillDetail.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.frmSupplilers.resources
+D:\Tài Liệu\n3 HK1 22-23\Công Nghệ PM\final\code\Supplement_Store\Supplement_Store\obj\Debug\Supplement_Store.frmAgencies.resources
